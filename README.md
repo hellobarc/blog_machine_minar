@@ -1,0 +1,1 @@
+# blog_machine_minar
