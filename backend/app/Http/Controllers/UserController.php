@@ -3,12 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Auth;
 
-class AuthController extends Controller
+class UserController extends Controller
 {
     public function register(Request $request)
     {
@@ -90,4 +86,14 @@ class AuthController extends Controller
         ];
         return response()->json($response, 200);
     }
+    public function me()
+    {
+        return response()->json($this->guard()->user());
+    }
+
+    public function guard()
+    {
+        return Auth::guard();
+    }
+
 }

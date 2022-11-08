@@ -23,8 +23,9 @@ use App\Http\Controllers\AuthController;
 Route::group(['middleware' => 'api'], function ($routes) {
 
     Route::post('/register', [AuthController::class, 'register']);
-    Route::post('/login', [AuthController::class, 'login'])->withoutMiddleware(['auth:api']);
+    Route::post('/login', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::post('/refresh', [AuthController::class, 'refresh'])->withoutMiddleware(['auth:api']);
+    Route::post('/refresh', [AuthController::class, 'refresh']);
+    Route::get('/user', [AuthController::class, 'me']);
 
 });
