@@ -1,6 +1,5 @@
 <template lang="">
     <div>
-        <Login/>
         <nuxt/>
     </div>
 </template>
