@@ -21,7 +21,7 @@ use App\Http\Controllers\CategoryController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::group(['middleware' => 'api'], function ($routes) {
+Route::group(['middleware' => 'api', 'prefix'=> 'auth'], function ($routes) {
 
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
@@ -36,6 +36,6 @@ Route::group(['middleware' => 'api'], function ($routes) {
 Route::get('category', [CategoryController::class, 'index']);
 Route::get('category/create', [CategoryController::class, 'create']);
 Route::put('category/store', [CategoryController::class, 'store']);
-Route::get('category/{id}', [CategoryController::class, 'show']);
-Route::put('category/{id}', [CategoryController::class, 'update']);
-Route::delete('category/{id}', [CategoryController::class, 'delete']);
+Route::get('category/show/{id}', [CategoryController::class, 'show']);
+Route::put('category/update/{id}', [CategoryController::class, 'update']);
+Route::delete('category/delete/{id}', [CategoryController::class, 'destroy']);
